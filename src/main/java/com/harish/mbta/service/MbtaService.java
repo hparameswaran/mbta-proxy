@@ -29,29 +29,28 @@ public class MbtaService {
 	
 	public MbtaInfo getMbtaInfo(String latitude,String longitude) {
 		logger.debug("Looking up info :" + latitude + "," + longitude);
+		
+		//Get all MBTA stops within 0.002 radius of the given coordinates
 		MbtaInfo mbtaInfo = new MbtaInfo(mbtaV3ApiProxy.getStopsNearBy(latitude, longitude));
 		
-		
+		//For each Stop
 		for (MbtaStop mbtaStop:mbtaInfo.getMbtaStop()) {
+			//Get schedule within next 20 minutes
 			List<MbtaSchedule> schedules = new ArrayList<MbtaSchedule>();
 			mbtaStop.setSchedules(schedules);
 			Schedule sched = mbtaV3ApiProxy.getScheduleForThisStop(mbtaStop.getId());
-			
+			//Get Route and Trip data associated with the schedule
 			for(Datum data:sched.getData()) {
 				MbtaSchedule mbtaSched = new MbtaSchedule(data);
 		    	mbtaSched.setRouteName(mbtaV3ApiProxy.getRoute(data.getRelationships().getRoute().getData().getId()).getData().getAttributes().getDescription());
-		    	
-		    	
-		    	
 		    	Trip trip = mbtaV3ApiProxy.getTrip(data.getRelationships().getTrip().getData().getId());
-		    	
 		    	mbtaSched.setTripName(trip.getData().getId() + " : " + trip.getData().getAttributes().getHeadsign());
 				schedules.add(mbtaSched);
 			}
 			
 		}
 		
-		
+		//Return filtered data from above Rest calls as MbtaInfo object
 		return mbtaInfo;
 	}
 }

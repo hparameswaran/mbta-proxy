@@ -47,10 +47,7 @@ public class MbtaV3ApiProxy {
 		uriVariables.put("latitude", latitude);
 		uriVariables.put("longitude", longitude);
 		RestTemplate restTemplate = new RestTemplate();
-		//String jsonReply = restTemplate.getForObject(URL_GET_STOPS,	String.class, uriVariables);
-		//logger.info(jsonReply);
-		
-  		Stop stop = restTemplate.getForObject(URL_GET_STOPS,Stop.class, uriVariables);
+		Stop stop = restTemplate.getForObject(URL_GET_STOPS,Stop.class, uriVariables);
 		return stop;
 	}
 	
@@ -66,9 +63,6 @@ public class MbtaV3ApiProxy {
 		
 		
 		RestTemplate restTemplate = new RestTemplate();
-		//String jsonReply = restTemplate.getForObject(URL_GET_SCHEDULES,	String.class, uriVariables);
-		//logger.info(jsonReply);
-		
 		Schedule schedule  = restTemplate.getForObject(URL_GET_SCHEDULES,	Schedule.class, uriVariables);
 		return schedule;
 	}
@@ -77,7 +71,6 @@ public class MbtaV3ApiProxy {
 		Map<String, String> uriVariables = new HashMap<>();
 		uriVariables.put("route_id", routeId);
 		RestTemplate restTemplate = new RestTemplate();
-		
 		Routes routes = restTemplate.getForObject(URL_GET_ROUTES,	Routes.class, uriVariables);
 		return routes;
 		
