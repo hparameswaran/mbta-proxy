@@ -1,7 +1,7 @@
 # RESTful MBTA Web Service
 Simple Rest Service using SpringBoot that aggregates MBTA RESTful API
 
-## MABTA Rest points that is being used
+## MBTA Rest points that is being used
 - https://api-v3.mbta.com/stops?filter[latitude]={latitude}&filter[longitude]={longitude}&filter[radius]=0.002
 - https://api-v3.mbta.com/schedules?filter[stop]={stop}&filter[min_time]={min}&filter[max_time]={max}
 - https://api-v3.mbta.com/routes/{route_id}
@@ -23,7 +23,7 @@ Standard MVC pattern (Controller-Service-Modal) classes in appropriate packages.
 The class that does logic of REST client to MBTA api is com.harish.mbta.restclient.MbtaV3ApiProxy
 It uses Springs RestTemplate class for communication with MBTA server.  A useful website (http://www.jsonschema2pojo.org/)
 was used to generate POJO classes for Json objects. Once we get the POJO objects the service class MbtaService
-remaps the response from MBTA API objects into a consolidated MbtaInfo class.
+re-maps the response from MBTA API objects into a consolidated MbtaInfo class.
 
 ## TO DO
 - Junits - more Junits needs to be written.
