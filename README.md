@@ -2,10 +2,10 @@
 Simple Rest Service using SpringBoot that aggregates MBTA RESTful API
 
 ## MABTA Rest points that is being used
-https://api-v3.mbta.com/stops?filter[latitude]={latitude}&filter[longitude]={longitude}&filter[radius]=0.002
-https://api-v3.mbta.com/schedules?filter[stop]={stop}&filter[min_time]={min}&filter[max_time]={max}
-https://api-v3.mbta.com/routes/{route_id}
-https://api-v3.mbta.com/trips/{trip_id}
+-https://api-v3.mbta.com/stops?filter[latitude]={latitude}&filter[longitude]={longitude}&filter[radius]=0.002
+-https://api-v3.mbta.com/schedules?filter[stop]={stop}&filter[min_time]={min}&filter[max_time]={max}
+-https://api-v3.mbta.com/routes/{route_id}
+-https://api-v3.mbta.com/trips/{trip_id}
 
 ## Main API
 After starting the SpringBoot application
@@ -26,10 +26,10 @@ was used to generate POJO classes for Json objects. Once we get the POJO objects
 remaps the response from MBTA API objects into a consolidated MbtaInfo class.
 
 ## TO DO
-# Junits - more Junits needs to be written.
-# Better design would be to cache some of the Routes and stops data from MBTA and thus avoid multiple calls.
-# Instead of using POJO and Un-marshaling , one could get result as string and use JSonPath library 
-# Have used Spring Clouds Feign Client for microservices talking Rest to each other but had some issue with MBTA Api.
+ Junits - more Junits needs to be written.
+ Better design would be to cache some of the Routes and stops data from MBTA and thus avoid multiple calls.
+ Instead of using POJO and Un-marshaling , one could get result as string and use JSonPath library 
+ Have used Spring Clouds Feign Client for microservices talking Rest to each other but had some issue with MBTA Api.
 
 
 
