@@ -20,9 +20,9 @@ Application outputs a data collected in above four calls as a single response.
 
 ## Design
 Standard MVC pattern (Controller-Service-Modal) classes in appropriate packages.
-The class that does logic of REST client to MBTA api is com.harish.mbta.restclient.MbtaV3ApiProxy
-It uses Springs RestTemplate class for communication with MBTA server.  A useful website (http://www.jsonschema2pojo.org/)
-was used to generate POJO classes for Json objects. Once we get the POJO objects the service class MbtaService
+The class that does logic of REST client to MBTA api is *com.harish.mbta.restclient.MbtaV3ApiProxy*
+It uses Springs RestTemplate class for communication with MBTA server.  A useful website (*http://www.jsonschema2pojo.org/*)
+was used to generate POJO classes for Json objects. Once we get the POJO objects the service class *MbtaService*
 re-maps the response from MBTA API objects into a consolidated MbtaInfo class.
 
 ## TO DO
@@ -31,6 +31,10 @@ re-maps the response from MBTA API objects into a consolidated MbtaInfo class.
 - Instead of using POJO and Un-marshaling , one could get result as string and use JSonPath library 
 - Have used Spring Clouds Feign Client for microservices talking Rest to each other but had some issue with MBTA Api.
 
+## Tools
+- Spring Tool Suite
+- Java 8
+- gradle 4.8.1
 
 
 
